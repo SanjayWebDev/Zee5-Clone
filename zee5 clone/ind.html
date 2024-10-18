@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="text" cols="30" rows="10"></textarea><br>
+    <input type="number" name="" id="step" min="0.5" max="3" step=".5" value="1">
+    <input type="button" value="play" id="play">
+    
+    <script>
+        let text=document.getElementById("text")
+        let step=document.getElementById("step")
+        let play=document.getElementById("play")
+
+        play.addEventListener('click',()=>{
+            rex(text.value)
+        })
+        function rex(talk){
+            let man=new SpeechSynthesisUtterance(talk)
+            man.rate=step.value
+
+            speechSynthesis.speak(man)
+        }
+    </script>
+</body>
+</html>
